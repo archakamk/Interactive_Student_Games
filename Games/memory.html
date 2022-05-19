@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory Test</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/lux/bootstrap.min.css" integrity="sha512-v51SrQ+z+dLohC1d0HyJA0nSM6XIyLoQl3IxRtM28vlbOPBRMSD3MlyUMNkLyBPlVGxt+9V+ChVG2c8LQsiu3w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+        <style>
+            .container {
+                background:cadetblue;
+                border-radius: 1em;
+                min-height: 100%;
+                height: 100%;
+            }
+            .main.flex {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5em;
+            }
+            .header{
+               margin-top: 25px; 
+               text-align: center; 
+               font:bolder;
+            }
+            .btn {
+                color: black;
+                background-color: bisque;
+                margin-top: 5px;
+                border-radius: 1em;
+                transform: translateY(75%);
+                transform: translateX(265%);
+            }
+            .info {
+                margin-top: 10px;
+                text-align: center;
+            }
+        </style>
+
+        <script type="text/javascript">
+            //Array with all possible characters
+            let allChars = [
+                ['a','b','c'],
+                ['d','e','f'],
+                ['g','h','i'],
+                ['j','k','l'],
+                ['m','n','o'],
+                ['p','q','r'],
+                ['s','t','u'],
+                ['v','w','x'],
+                ['y','z','!'], 
+                ['?','=','+']
+            ]
+
+            var row = Math.floor(Math.random()*allChars.length)
+            var col = Math.floor(Math.random()*allChars[0].length)
+            var toDisplay = allChars[row][col]
+            var answers = allChars[row]
+            var option1 = answers[0]
+            var option2 = answers[1]
+            var option3 = answers[2]
+            var val;
+
+            function generate() {
+                setTimeout(function(){
+                    document.getElementById("demo").innerHTML = toDisplay;
+                },5000);
+                
+
+                document.getElementById("ex").innerHTML = option1
+                document.getElementById("ex1").innerHTML = option2
+                document.getElementById("ex2").innerHTML = option3
+            }
+
+            //This is the JavaScript for the sample mc below in the HTML
+            function submit() {
+                console.log("over here 82")
+                
+                for (var i = 0; i < answers.length; i++) {
+                    console.log("going through the for loop")
+                    console.log("val = " + val)
+                    console.log("answers = " + answers)
+                    console.log("toDisplay = " + toDisplay)
+                    console.log("Desired value = " + allChars[row][col])
+                    if (answers[i] == toDisplay) {
+                        val = answers[i]
+                        console.log("for loop test is a success maybe: "+val)
+                        break
+                    }
+                }
+    
+                console.log("val = " + val)
+                console.log("option 1 = " + option1)
+                console.log("option 2 = " + option2)
+                console.log("option 3 = " + option3)
+
+                if ( val == option1 ) {
+                    document.getElementById("ex").innerHTML = 'Answer is correct!';
+                    console.log("success option 1")
+                } else if (val == option2) {
+                    document.getElementById("ex1").innerHTML = 'Answer is correct';
+                    console.log("success option 2")
+                } else if (val == option3) {
+                    document.getElementById("ex2").innerHTML = 'Answer is correct';
+                    console.log("success option 3")
+                } else {
+                    console.log("test fail")
+                }
+
+                setTimeout(
+                    function(){
+                        window.location.reload();
+                }, 4000);
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="font-size: x-large">Interactive Student Games</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/about-creators.html">About the Creators</a>
+                  </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <main class="flex">
+            <h1 class="header">Memory Test</h1>
+            <div class="container">
+                <div class="d-grid gap-2">
+                    <button class="btn" click="generate()">Generate Problem</button>
+                    <h4 class="info" id="demo"><h4>
+                    
+                    <br>
+                          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+                            <label class="btn btn-outline-primary b1" for="btnradio1" name="hi" onclick="submit()">
+                                <h4 id="ex"></h4>
+                            </label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
+                            <label class="btn btn-outline-primary b2" for="btnradio2" onclick="submit()">
+                                <h4 id="ex1">option2</h4>
+                            </label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="">
+                            <label class="btn btn-outline-primary b3" for="btnradio3" onclick="submit()">
+                                <h4 id="ex2"></h4>
+                            </label>
+                          </div>
+                        <!-- <button onclick="submitAnswer()">Submit</button> -->
+                </div>
+            </div>
+        </main>
+    </body>
+    
+</html>
