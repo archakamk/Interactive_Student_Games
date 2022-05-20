@@ -9,10 +9,12 @@
 
         <style>
             .container {
-                background:cadetblue;
-                border-radius: 1em;
+                background-color:rgb(102, 204, 255);
                 min-height: 100%;
                 height: 100%;
+                align-items: center;
+                margin-top: 50px;
+                border-radius: 0.5em;
             }
             .main.flex {
                 display: flex;
@@ -29,12 +31,12 @@
                 background-color: bisque;
                 margin-top: 5px;
                 border-radius: 1em;
-                transform: translateY(75%);
-                transform: translateX(265%);
+                font-size: x-large;
             }
             .info {
                 margin-top: 10px;
                 text-align: center;
+                font-size: 40pt;
             }
         </style>
 
@@ -53,71 +55,87 @@
                 ['?','=','+']
             ]
 
+            //All globally declared variables
             var row = Math.floor(Math.random()*allChars.length)
             var col = Math.floor(Math.random()*allChars[0].length)
             var toDisplay = allChars[row][col]
+            var toDisplayChecker = allChars[row][col]
             var answers = allChars[row]
             var option1 = answers[0]
             var option2 = answers[1]
             var option3 = answers[2]
-            var val;
 
+            //generate function -- allows us to display the question and the multiple choice options
             function generate() {
+
+                document.getElementById("demo").innerHTML = toDisplay 
+               
+                //allows us to display a certain text for n number of seconds
                 setTimeout(function(){
-                    document.getElementById("demo").innerHTML = toDisplay;
-                },5000);
-                
+                    document.getElementById("demo").innerHTML = ''
 
-                document.getElementById("ex").innerHTML = option1
-                document.getElementById("ex1").innerHTML = option2
-                document.getElementById("ex2").innerHTML = option3
+                    document.getElementById("ex1").innerHTML = option1
+                    document.getElementById("ex2").innerHTML = option2
+                    document.getElementById("ex3").innerHTML = option3
+                },5000);         
             }
+            
+            //This function allows us to check if the answer submitted by the user is correct or not
+            var reply_click = function(){
 
-            //This is the JavaScript for the sample mc below in the HTML
-            function submit() {
-                console.log("over here 82")
-                
-                for (var i = 0; i < answers.length; i++) {
-                    console.log("going through the for loop")
-                    console.log("val = " + val)
-                    console.log("answers = " + answers)
-                    console.log("toDisplay = " + toDisplay)
-                    console.log("Desired value = " + allChars[row][col])
-                    if (answers[i] == toDisplay) {
-                        val = answers[i]
-                        console.log("for loop test is a success maybe: "+val)
-                        break
+                //eventListener must be used to take in input from player
+                document.addEventListener('click', function(e) {
+
+                    // console.log("Line 128"+document.getElementById(e.target.id).innerHTML) 
+                    // console.log("Line 129"+toDisplayChecker)
+                    // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
+                   
+                    let letterDisplayed = document.getElementById(e.target.id).innerHTML //the letter that is submitted by user
+                    let modified;
+
+                    // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
+                    // console.log("This is substring(13): " + letterDisplayed.substring(13))
+                    // console.log("Until second tag(14): " + letterDisplayed.substring(14))
+
+                    //checks to see if the actual answer contains extra unecessary characters & modifies the string
+                    if(letterDisplayed.length > 1) {
+                        modified = letterDisplayed.substring(letterDisplayed.indexOf(">")+1, letterDisplayed.indexOf(">")+2)
+                       
+                        //console.log("modified: "+ modified)
                     }
-                }
-    
-                console.log("val = " + val)
-                console.log("option 1 = " + option1)
-                console.log("option 2 = " + option2)
-                console.log("option 3 = " + option3)
+                    else{
+                        modified = letterDisplayed
+                    }
 
-                if ( val == option1 ) {
-                    document.getElementById("ex").innerHTML = 'Answer is correct!';
-                    console.log("success option 1")
-                } else if (val == option2) {
-                    document.getElementById("ex1").innerHTML = 'Answer is correct';
-                    console.log("success option 2")
-                } else if (val == option3) {
-                    document.getElementById("ex2").innerHTML = 'Answer is correct';
-                    console.log("success option 3")
-                } else {
-                    console.log("test fail")
-                }
+                    //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                    if (modified === toDisplayChecker) {
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(e.target.id).style.backgroundColor = "green"
+                    } else { 
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    }
 
+                }, false)
+
+
+            
                 setTimeout(
-                    function(){
-                        window.location.reload();
-                }, 4000);
-            }
+                        function(){
+                            window.location.reload()
+                    }, 4000)
+                }
+
+                //used to take in info
+                document.getElementById('btn1').onclick = reply_click;
+                document.getElementById('btn2').onclick = reply_click;
+                document.getElementById('btn3').onclick = reply_click;
+
         </script>
 
     </head>
 
-    <body>
+    <body style="background-color: whitesmoke">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
               <a class="navbar-brand" style="font-size: x-large">Interactive Student Games</a>
@@ -144,27 +162,24 @@
 
         <main class="flex">
             <h1 class="header">Memory Test</h1>
-            <div class="container">
+            <div class="container bg-info">
                 <div class="d-grid gap-2">
-                    <button class="btn" click="generate()">Generate Problem</button>
+                    <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
                     <h4 class="info" id="demo"><h4>
-                    
                     <br>
+                    <div class="items">
                           <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
-                            <label class="btn btn-outline-primary b1" for="btnradio1" name="hi" onclick="submit()">
-                                <h4 id="ex"></h4>
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">
+<h4 id="ex1"></h4>
                             </label>
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
-                            <label class="btn btn-outline-primary b2" for="btnradio2" onclick="submit()">
-                                <h4 id="ex1">option2</h4>
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click(this.id)">
+<h4 id="ex2"></h4>
                             </label>
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="">
-                            <label class="btn btn-outline-primary b3" for="btnradio3" onclick="submit()">
-                                <h4 id="ex2"></h4>
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click(this.id)">
+<h4 id="ex3"></h4>
                             </label>
                           </div>
-                        <!-- <button onclick="submitAnswer()">Submit</button> -->
+                    </div>
                 </div>
             </div>
         </main>
