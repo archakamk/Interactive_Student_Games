@@ -33,6 +33,20 @@
                 border-radius: 1em;
                 font-size: x-large;
             }
+
+            .items {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .top-para {
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+                font-size: larger;
+                text-align: center;
+                color:black;
+            }
             .info {
                 margin-top: 10px;
                 text-align: center;
@@ -117,8 +131,6 @@
                     }
 
                 }, false)
-
-
             
                 setTimeout(
                         function(){
@@ -162,14 +174,24 @@
 
         <main class="flex">
             <h1 class="header">Memory Test</h1>
+            <p class="top-para">
+                The student will be shown a single letter to memorize in the span of 10 seconds. After the time to memorize is up, students will be quizzed on what letter was shown and will be able to build up their memory skills
+            </p>
             <div class="container bg-info">
-                <div class="d-grid gap-2">
-                    <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
-                    <h4 class="info" id="demo"><h4>
-                    <br>
-                    <div class="items">
-                          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">
+                <div class="d-grid gap-2 place-items-center">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="info" id="demo"></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-vertical mx-auto" role="group" aria-label="Basic radio toggle button group">
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">  
 <h4 id="ex1"></h4>
                             </label>
                             <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click(this.id)">
@@ -180,6 +202,7 @@
                             </label>
                           </div>
                     </div>
+                          
                 </div>
             </div>
         </main>
