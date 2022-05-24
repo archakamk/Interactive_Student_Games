@@ -83,14 +83,19 @@
             var triangle = {link: 'https://o.remove.bg/downloads/18fdc4a4-f1f6-4210-bebb-9e5c6a5f3e34/06ac9da1a17c6daf308ea6b6bb6568a2-removebg-preview.png', name:"triangle"}
             var square = {link: 'https://o.remove.bg/downloads/21ac7640-b939-4c04-b2dd-cf1171407eba/download-removebg-preview.png', name: "square"}
  */
-            var diamond = {link:'https://i.imgur.com/9EKOmKq.png', name: "diamond"}
+            /* var diamond = {link:'https://i.imgur.com/9EKOmKq.png', name: "diamond"}
             var circle = {link: 'https://i.imgur.com/tEKUDt1.png', name: "circle"}
             var trapezoid = {link: 'https://i.imgur.com/IVez7G9.png', name: "trapezoid"}
             var rectangle = {link:'https://i.imgur.com/MgQUfJb.png', name: "rectangle"}
             var triangle = {link: 'https://i.imgur.com/V33tp9a.png', name:"triangle"}
-            var square = {link: 'https://i.imgur.com/Auhwwq4.png', name: "square"}
+            var square = {link: 'https://i.imgur.com/Auhwwq4.png', name: "square"} */
 
-
+            var diamond = {link:'/Images/Shapes-Img/diamond.png', name: "diamond"}
+            var circle = {link: '/Images/Shapes-Img/circle.png', name: "circle"}
+            var trapezoid = {link: '/Images/Shapes-Img/trapezoid.png', name: "trapezoid"}
+            var rectangle = {link:'/Images/Shapes-Img/rectangle.png', name: "rectangle"}
+            var triangle = {link: '/Images/Shapes-Img/triangle.png', name:"triangle"}
+            var square = {link: '/Images/Shapes-Img/square.png', name: "square"}
 
             var thisContainsAllShapes = [diamond, circle, trapezoid, rectangle, triangle, square]
             
@@ -201,6 +206,8 @@
                     // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
                    
                     let testURL = document.getElementById(e.target.id).src //the shape that is submitted by user
+                    let btnID = e.target.id
+                    let btnIDActual = "ex" + btnID.substring(2)
                     console.log(testURL)
 
                     console.log("189")
