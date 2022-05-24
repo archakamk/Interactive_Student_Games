@@ -30,7 +30,6 @@
                 border-radius: 1em;
                 font-size: x-large;
             }
-
             .items {
                 display: flex;
                 flex-direction: column;
@@ -59,26 +58,29 @@
             }
         </style>
 
+
+
+
         <script type="text/javascript">
-            //Array with all possible images
-            /* var allShapes = [
-                new Array(3),
-                new Array(3),
-                new Array(3),
-                new Array(3),
-                new Array(3),
-                new Array(3)
-            ] */
 
-            var names = ["Circle","Triangle","Rectangle","Diamond","Square","Trapezoid"]
+            /*
+            circle:https://dictionary.cambridge.org/es-LA/images/thumb/circle_noun_001_02738.jpg?version=5.0.239
+            diamond: https://www.pngkit.com/png/detail/28-283979_crystal-clipart-diamond-shape-light-blue-diamond-shape.png
+            OR https://www.pngkit.com/png/detail/6-61095_diamond-shape-clipart-triangle.png
+            trapezoid: https://www.pngkey.com/png/detail/147-1474842_red-trapezoid-png-mathematics.png
+            rectangle: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rectangle_example.svg/1280px-Rectangle_example.svg.png
+            triangle: https://i.pinimg.com/736x/06/ac/9d/06ac9da1a17c6daf308ea6b6bb6568a2.jpg
+            square: https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/f42247a88ded47cab028611ad986cf77/1563506098_area-of-the-square.png
+            */
 
-            var diamond = 'https://i.imgur.com/7GSaoR1.png'
-            var circle = 'https://i.imgur.com/fOS7Xr9.png'
-            var trapezoid = 'https://i.imgur.com/0SgHNpj.png'
-            var rectangle = 'https://i.imgur.com/hOQwk1j.png'
-            var triangle = 'https://i.imgur.com/gcRuyQh.png'
-            var square = 'https://i.imgur.com/tILtDSG.png'
-
+            //Objects of each shape
+            var diamond = {link:'https://o.remove.bg/downloads/ff4a328d-c9a3-4c76-bf59-875959557bb3/28-283979_crystal-clipart-diamond-shape-light-blue-diamond-shape-removebg-preview.png', name: "diamond"}
+            var circle = {link: 'https://o.remove.bg/downloads/e869d4f6-b235-48ad-abb4-886cf19eba96/Picture-1-removebg-preview.png', name: "circle"}
+            var trapezoid = {link: 'https://o.remove.bg/downloads/f45ec408-29ce-442e-aef2-219116e08d6f/trapezoid-removebg-preview.png', name: "trapezoid"}
+            var rectangle = {link:'https://o.remove.bg/downloads/daae2d19-1a76-4d47-bfb9-a04f14021e24/Rectangle_example.svg-removebg-preview.png', name: "rectangle"}
+            var triangle = {link: 'https://o.remove.bg/downloads/18fdc4a4-f1f6-4210-bebb-9e5c6a5f3e34/06ac9da1a17c6daf308ea6b6bb6568a2-removebg-preview.png', name:"triangle"}
+            var square = {link: 'https://o.remove.bg/downloads/21ac7640-b939-4c04-b2dd-cf1171407eba/download-removebg-preview.png', name: "square"}
+            
             var allShapes = [
                 [diamond, trapezoid, rectangle],
                 [circle, square, trapezoid],
@@ -88,92 +90,6 @@
                 [square, trapezoid, rectangle]
             ]
 
-            /* let allShapes = new Array()
-            allShapes[0] =  new Image()
-            allShapes[0].src = '/Shapes-Img/circle.png'
-            allShapes[1] = new Image()
-            allShapes[1].src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pink_triangle_up.svg/2304px-Pink_triangle_up.svg.png'
-            allShapes[2] =  new Image()
-            allShapes[2].src = 'https://miro.medium.com/max/600/0*kKnHv-KrL6Yd1oZj.png'
-            allShapes[3] =  new Image()
-            allShapes[3].src = 'https://i.stack.imgur.com/dwoZY.png'
-            allShapes[4] =  new Image()
-            allShapes[4].src = 'https://us.123rf.com/450wm/cgdeaw/cgdeaw1904/cgdeaw190400340/121202498-pink-trapezoid-basic-simple-shapes-isolated-on-white-background-geometric-trapezoid-icon-2d-shape-sy.jpg?ver=6'
-            allShapes[5] =  new Image()
-            allShapes[5].src = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/f42247a88ded47cab028611ad986cf77/1563506098_area-of-the-square.png'
-
-            console.log(allShapes) */
-            
-            /* function nextImage(element){
-                var img = document.getElementById(element);
-
-                for(var i = 0; i < imgArray.length;i++)
-                {
-                    if(imgArray[i].src == img.src) // << check this
-                    {
-                        if(i === imgArray.length){
-                            document.getElementById(element).src = imgArray[0].src;
-                            break;
-                        }
-                        document.getElementById(element).src = imgArray[i+1].src;
-                        break;
-                    }
-                }
-            } */
-
-            /* Shapes-Img\circle.png */
-
-            /* var circle = 'https://img.buzzfeed.com/buzzfeed-static/static/2017-02/13/17/campaign_images/buzzfeed-prod-fastlane-01/youll-only-be-able-to-see-everything-in-this-circ-2-23176-1487024764-4_dblbig.jpg?resize=1200:*'
-            var triangle = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pink_triangle_up.svg/2304px-Pink_triangle_up.svg.png'
-            var rectangle = 'https://miro.medium.com/max/600/0*kKnHv-KrL6Yd1oZj.png'
-            var diamond = 'https://i.stack.imgur.com/dwoZY.png'
-            var trapezoid = 'https://us.123rf.com/450wm/cgdeaw/cgdeaw1904/cgdeaw190400340/121202498-pink-trapezoid-basic-simple-shapes-isolated-on-white-background-geometric-trapezoid-icon-2d-shape-sy.jpg?ver=6'
-            var square = 'https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/f42247a88ded47cab028611ad986cf77/1563506098_area-of-the-square.png'
- */
-             // /Games/Shapes-Img/
-            /* allShapes[0][0] = new Image()
-            allShapes[0][0].src = circle
-            allShapes[0][1] = new Image()
-            allShapes[0][1].src =diamond
-            allShapes[0][2] = new Image()
-            allShapes[0][2].src = rectangle
-            allShapes[1][0] = new Image()
-            allShapes[1][0].src = square
-            allShapes[1][1] = new Image()
-            allShapes[1][1].src = trapezoid
-            allShapes[0][0] = new Image()
-            allShapes[1][2].src = triangle
-            allShapes[2][0] = new Image()
-            allShapes[2][0].src = trapezoid
-            allShapes[2][1] = new Image()
-            allShapes[2][1].src = triangle
-            allShapes[2][2] = new Image()
-            allShapes[2][2].src = diamond
-            allShapes[3][0] = new Image()
-            allShapes[3][0].src = diamond
-            allShapes[3][1] = new Image()
-            allShapes[3][1].src = square
-            allShapes[3][2] = new Image()
-            allShapes[3][2].src = circle
-            allShapes[4][0] = new Image()
-            allShapes[4][0].src = triangle
-            allShapes[4][1] = new Image()
-            allShapes[4][1].src = rectangle
-            allShapes[4][2] = new Image()
-            allShapes[4][2].src = circle
-            allShapes[5][0] = new Image()
-            allShapes[5][0].src = diamond
-            allShapes[5][1] = new Image()
-            allShapes[5][1].src = circle
-            allShapes[5][2] = new Image()
-            allShapes[5][2].src = triangle */
-            
-            //Kalyan
-            /* Shapes-Img/trapezoid.png
-            Shapes-Img\triangle.png */
-            
-            // let allNames = ["Square","Circle","Triangle","Rectangle","Trapezoid","Diamond"]
-
             //All globally declared variables
             var row = Math.floor(Math.random()*6)
             var answerRand = Math.floor(Math.random()*3)
@@ -181,29 +97,37 @@
             var option2 = allShapes[row][1]
             var option3 = allShapes[row][2]
             var answer = allShapes[row][answerRand]
-            var questionShape = answer.substring((answer.indexOf("g")+2),answer.indexOf("."))
+            var answerName = answer.name
             // console.log("questionShape: " + questionShape)
             // console.log("answer " + answer)
+
+           /* var button1 = document.getElementById("ex1")
+            button1.innerHTML = option1.link
+            
+            var button2 = document.getElementById("ex2")
+            button2.innerHTML = option2.link
+
+            var button1 = document.getElementById("ex3")
+            button1.innerHTML = option3.link*/
             
             //generate function -- allows us to display the question and the multiple choice options
             function generate() {
-
-                document.getElementById("text-before").innerHTML = 'Click on the ' 
-                document.getElementById("demo").innerHTML = questionShape
+                console.log(answerName)
+                document.getElementById("text-before").innerHTML = 'Click on the ' // "\n"answerName
+                document.getElementById("demo").innerHTML = answerName
                
-                //allows us to display a certain text for n number of seconds
-                setTimeout(function(){
-                    document.getElementById("demo").innerHTML = ''
-
-                    document.getElementById("ex1").src = option1
-                    document.getElementById("ex2").src = option2
-                    document.getElementById("ex3").src = option3                    
-                },5000);         
-
+                document.getElementById("ex1").src = option1.link
+                document.getElementById("ex1").id = option1.name
+                document.getElementById("ex2").src = option2.link
+                document.getElementById("ex2").id = option2.name
+                document.getElementById("ex3").src = option3.link 
+                document.getElementById("ex3").id = option3.name                   
+                
             }
             
             //This function allows us to check if the answer submitted by the user is correct or not
-            var reply_click = function(){
+            function reply_click(){
+                
 
                 //eventListener must be used to take in input from player
                 document.addEventListener('click', function(e) {
@@ -213,8 +137,9 @@
                     // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
                    
                     let shape_name = document.getElementById(e.target.id).innerHTML //the letter that is submitted by user
-                    let modified;
-
+                    console.log(shape_name)
+                    let modified = shape_name.substring(shape_name.indexOf("id=")+4, shape_name.indexOf(" s")-1)
+                    console.log(modified)
                     // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
                     // console.log("This is substring(13): " + letterDisplayed.substring(13))
                     // console.log("Until second tag(14): " + letterDisplayed.substring(14))
@@ -230,7 +155,7 @@
                     } */
 
                     //checks if the submitted answer is identical to the answer and displays correct or incorrect
-                    if (modified === toDisplayChecker) {
+                    if (modified === answerName) {
                         document.getElementById(e.target.id).innerHTML = 'correct'
                         document.getElementById(e.target.id).style.backgroundColor = "green"
                     } else { 
@@ -241,15 +166,18 @@
                 }, false)
             
                 setTimeout(
-                        function(){
-                            window.location.reload()
-                    }, 4000)
-                }
+                    function(){
+                        window.location.reload()
+                    }
+                , 4000)
 
-                //used to take in info
-                document.getElementById('btn1').onclick = reply_click;
-                document.getElementById('btn2').onclick = reply_click;
-                document.getElementById('btn3').onclick = reply_click;
+                return 
+            }
+
+            document.getElementById('btn1').onclick = reply_click;
+            document.getElementById('btn2').onclick = reply_click;
+            document.getElementById('btn3').onclick = reply_click;
+                
 
         </script>
     </head>
@@ -295,26 +223,27 @@
                         <div class="col">
                             <h2 class="txt-before-deco" id="text-before"></h2>
                             <br>
-                            <img class="info" id="demo"></img>
+                            <h2 class="txt-before-deco" id="demo"></h2>
+                            <br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">  
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
 <img class="resize" id="ex1"></img>
                             </label>
-                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click(this.id)">
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
 <img class="resize" id="ex2"></img>
                             </label>
-                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click(this.id)">
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
 <img class="resize" id="ex3"></img>
                             </label>
                           </div>
-                    </div>
-                          
+                    </div> 
                 </div>
             </div>
         </main>
     </body>
 
 </html>
+
