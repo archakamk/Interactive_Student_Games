@@ -1,9 +1,232 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title>Color Test</title>
+        <title>Shape Test</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/lux/bootstrap.min.css" integrity="sha512-v51SrQ+z+dLohC1d0HyJA0nSM6XIyLoQl3IxRtM28vlbOPBRMSD3MlyUMNkLyBPlVGxt+9V+ChVG2c8LQsiu3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+            .container {
+                background-color:rgb(102, 204, 255);
+                min-height: 100%;
+                height: 100%;
+                align-items: center;
+                margin-top: 50px;
+                border-radius: 0.5em;
+            }
+            .main.flex {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5em;
+            }
+            .header{
+               margin-top: 25px; 
+               text-align: center; 
+               font:bolder;
+            }
+            .btn {
+                color: black;
+                background-color: bisque;
+                margin-top: 5px;
+                border-radius: 1em;
+                font-size: x-large;
+            }
+            .items {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .top-para {
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+                font-size: larger;
+                text-align: center;
+                color:black;
+            }
+            .info {
+                margin-top: 10px;
+                text-align: center;
+                font-size: 40pt;
+            }
+            .txt-before-deco {
+                text-align: center;
+                font: bolder;
+            }
+            .resize {
+                width: auto;
+                height: 200px;
+            }
+            .cont {
+                display: inline-block;
+                gap: 20px;
+                margin-bottom: 50px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            /* var diamond = {link:'https://i.imgur.com/9EKOmKq.png', name: "diamond"}
+            var circle = {link: 'https://i.imgur.com/tEKUDt1.png', name: "circle"}
+            var trapezoid = {link: 'https://i.imgur.com/IVez7G9.png', name: "trapezoid"}
+            var rectangle = {link:'https://i.imgur.com/MgQUfJb.png', name: "rectangle"}
+            var triangle = {link: 'https://i.imgur.com/V33tp9a.png', name:"triangle"}
+            var square = {link: 'https://i.imgur.com/Auhwwq4.png', name: "square"} */
+
+            var black = {link:'/Images/Color-Img/black-circle.png', name: "Black"}
+            var blue = {link: '/Images/Color-Img/blue-circle.png', name: "Blue"}
+            var green = {link: '/Images/Color-Img/green-circle.png', name: "Green"}
+            var orange = {link:'/Images/Color-Img/orange-circle.png', name: "Orange"}
+            var pink = {link: '/Images/Color-Img/pink-circle.png', name:"Pink"}
+            var red = {link: '/Images/Color-Img/red-circle.png', name: "Red"}
+
+            var thisContainsAllColors = [black, blue, green, orange, pink, red]
+            
+            var allColors = [
+                [black, blue, green],
+                [blue, green, orange],
+                [pink, black, green],
+                [red, black, pink],
+                [blue, green, black],
+                [green, orange, pink]
+            ]
+
+            //All globally declared variables
+            var row = Math.floor(Math.random()*6)
+            var answerRand = Math.floor(Math.random()*3)
+            var option1 = allColors[row][0]
+            var option2 = allColors[row][1]
+            var option3 = allColors[row][2]
+            var answer = allColors[row][answerRand]
+            var answerName = answer.name
+            
+            //generate function -- allows us to display the question and the multiple choice options
+            function generate() {
+                document.getElementById("text-before").innerHTML = 'Click on '
+                document.getElementById("demo").innerHTML = answerName
+               
+                document.getElementById("ex1").src = option1.link
+                document.getElementById("ex1").id = option1.name
+                document.getElementById("ex2").src = option2.link
+                document.getElementById("ex2").id = option2.name
+                document.getElementById("ex3").src = option3.link 
+                document.getElementById("ex3").id = option3.name                   
+            }
+            
+            //This function allows us to check if the answer submitted by the user is correct or not
+            function reply_click(){
+                
+
+                //eventListener must be used to take in input from player
+                document.addEventListener('click', function(e) {
+                    // console.log("i am inside")
+                   
+                    let shape_name = document.getElementById(e.target.id).id //the shape that is submitted by user
+                    // console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
+                    // console.log("shape name: " + shape_name)
+
+                    //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                    if (shape_name === answerName) {
+                        console.log("its correct u mf")
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(e.target.id).style.backgroundColor = "green"
+                        document.getElementById(e.target.id).style.color = "green"
+                    } else { 
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    }
+
+                }, false)
+
+                //console.log("173 am i outside")
+            
+                setTimeout(
+                    function(){
+                        window.location.reload()
+                    }
+                , 1000)
+            }
+
+            function reply_click_img(){
+                //eventListener must be used to take in input from player
+                document.addEventListener('click', function(e) {
+                   
+                    let testURL = document.getElementById(e.target.id).src //the shape that is submitted by user
+                    let btnID = e.target.id
+                    let btnIDActual = "ex" + btnID.substring(2)
+                    console.log("testURL: "+testURL)
+                    console.log("e.target.id: "+e.target.id)
+                    console.log("btnID: "+btnID)
+                    console.log("btnIDActual: "+btnIDActual)
+
+                    //console.log("189")
+                    if(testURL === answer.link){
+                        document.getElementById(e.target.id).style.backgroundColor = 'green'
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(btnIDActual).style.backgroundColor = 'green'
+                    } else {
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                        document.getElementById(btnIDActual).style.backgroundColor = "red"
+                    }
+                    //let URLMatchingName;
+
+                    // for (let x = 0; x < 6; x++) {
+                    //     if(testURL === thisContainsAllShapes[x].link) {
+                    //         URLMatchingName = thisContainsAllShapes[x].name
+                    //     }
+                    // }
+
+
+                    // let modified = shape_name.substring(testURL.indexOf("id=")+4, testURL.indexOf(" s")-1)
+                    // console.log(modified)
+                    // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
+                    // console.log("This is substring(13): " + letterDisplayed.substring(13))
+                    // console.log("Until second tag(14): " + letterDisplayed.substring(14))
+
+                    //checks to see if the actual answer contains extra unecessary characters & modifies the string
+                    /* if(letterDisplayed.length > 1) {
+                        modified = letterDisplayed.substring(letterDisplayed.indexOf(">")+1, letterDisplayed.indexOf(">")+2)
+                       
+                        //console.log("modified: "+ modified)
+                    }
+                    else{
+                        modified = letterDisplayed
+                    } */
+
+                    //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                    /* if (URLMatchingName=answerName) {
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(e.target.id).style.backgroundColor = "green"
+                    } else { 
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    } */
+
+                    console.log("231")
+                }, false)
+
+                console.log("234")
+            
+                // setTimeout(
+                //     function(){
+                //         window.location.reload()
+                //     }
+                // , 4000)
+
+                console.log("finished with reply_click_img")
+            }
+
+            document.getElementById('btn1').onclick = reply_click;
+            document.getElementById('btn2').onclick = reply_click;
+            document.getElementById('btn3').onclick = reply_click;
+                
+
+        </script>
     </head>
+
+    <!--svg tag may be pretty helpful in this program
+          -can create circles and other shapes
+    -->
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -29,7 +252,45 @@
               </div>
             </div>
           </nav>
-        <h1>Hello</h1>
+          <main class="flex">
+            <p class="top-para">
+              The user is given 2 colors to choose from. They are then prompted to choose the correct color.
+              If they select the correct option, their score will increase. There will be 10 rounds in this game.            
+            </p>
+            <h1 class="header">Color Test</h1>
+            <div class="container bg-info">
+                <div class="d-grid gap-2 place-items-center">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="txt-before-deco" id="text-before"></h2>
+                            <br>
+                            <h2 class="txt-before-deco" id="demo"></h2>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
+                                <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
+                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                            </label>
+                            
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
+                                <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
+                            </label>
+                          </div>
+                    </div> 
+                </div>
+            </div>
+        </main>
     </body>
 
 </html>
+

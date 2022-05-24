@@ -64,25 +64,6 @@
         </style>
 
         <script type="text/javascript">
-
-            /*
-            circle:https://dictionary.cambridge.org/es-LA/images/thumb/circle_noun_001_02738.jpg?version=5.0.239
-            diamond: https://www.pngkit.com/png/detail/28-283979_crystal-clipart-diamond-shape-light-blue-diamond-shape.png
-            OR https://www.pngkit.com/png/detail/6-61095_diamond-shape-clipart-triangle.png
-            trapezoid: https://www.pngkey.com/png/detail/147-1474842_red-trapezoid-png-mathematics.png
-            rectangle: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rectangle_example.svg/1280px-Rectangle_example.svg.png
-            triangle: https://i.pinimg.com/736x/06/ac/9d/06ac9da1a17c6daf308ea6b6bb6568a2.jpg
-            square: https://cdn-skill.splashmath.com/panel-uploads/GlossaryTerm/f42247a88ded47cab028611ad986cf77/1563506098_area-of-the-square.png
-            */
-
-            //Objects of each shape
-            /* var diamond = {link:'https://o.remove.bg/downloads/ff4a328d-c9a3-4c76-bf59-875959557bb3/28-283979_crystal-clipart-diamond-shape-light-blue-diamond-shape-removebg-preview.png', name: "diamond"}
-            var circle = {link: 'https://o.remove.bg/downloads/e869d4f6-b235-48ad-abb4-886cf19eba96/Picture-1-removebg-preview.png', name: "circle"}
-            var trapezoid = {link: 'https://o.remove.bg/downloads/f45ec408-29ce-442e-aef2-219116e08d6f/trapezoid-removebg-preview.png', name: "trapezoid"}
-            var rectangle = {link:'https://o.remove.bg/downloads/daae2d19-1a76-4d47-bfb9-a04f14021e24/Rectangle_example.svg-removebg-preview.png', name: "rectangle"}
-            var triangle = {link: 'https://o.remove.bg/downloads/18fdc4a4-f1f6-4210-bebb-9e5c6a5f3e34/06ac9da1a17c6daf308ea6b6bb6568a2-removebg-preview.png', name:"triangle"}
-            var square = {link: 'https://o.remove.bg/downloads/21ac7640-b939-4c04-b2dd-cf1171407eba/download-removebg-preview.png', name: "square"}
- */
             /* var diamond = {link:'https://i.imgur.com/9EKOmKq.png', name: "diamond"}
             var circle = {link: 'https://i.imgur.com/tEKUDt1.png', name: "circle"}
             var trapezoid = {link: 'https://i.imgur.com/IVez7G9.png', name: "trapezoid"}
@@ -116,21 +97,10 @@
             var option3 = allShapes[row][2]
             var answer = allShapes[row][answerRand]
             var answerName = answer.name
-            // console.log("questionShape: " + questionShape)
-            // console.log("answer " + answer)
-
-           /* var button1 = document.getElementById("ex1")
-            button1.innerHTML = option1.link
-            
-            var button2 = document.getElementById("ex2")
-            button2.innerHTML = option2.link
-
-            var button1 = document.getElementById("ex3")
-            button1.innerHTML = option3.link*/
             
             //generate function -- allows us to display the question and the multiple choice options
             function generate() {
-                document.getElementById("text-before").innerHTML = 'Click on the ' // "\n"answerName
+                document.getElementById("text-before").innerHTML = 'Click on the '
                 document.getElementById("demo").innerHTML = answerName
                
                 document.getElementById("ex1").src = option1.link
@@ -139,7 +109,6 @@
                 document.getElementById("ex2").id = option2.name
                 document.getElementById("ex3").src = option3.link 
                 document.getElementById("ex3").id = option3.name                   
-                
             }
             
             //This function allows us to check if the answer submitted by the user is correct or not
@@ -148,30 +117,11 @@
 
                 //eventListener must be used to take in input from player
                 document.addEventListener('click', function(e) {
-                    console.log("i am inside")
-                
-                    // console.log("Line 128"+document.getElementById(e.target.id).innerHTML) 
-                    // console.log("Line 129"+toDisplayChecker)
-                    // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
+                    // console.log("i am inside")
                    
                     let shape_name = document.getElementById(e.target.id).id //the shape that is submitted by user
-                    console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
-                    console.log("shape name: " + shape_name)
-                    // let modified = shape_name.substring(shape_name.indexOf("id=")+4, shape_name.indexOf(" s")-1)
-                    // console.log("modified" + modified)
-                    // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
-                    // console.log("This is substring(13): " + letterDisplayed.substring(13))
-                    // console.log("Until second tag(14): " + letterDisplayed.substring(14))
-
-                    //checks to see if the actual answer contains extra unecessary characters & modifies the string
-                    /* if(letterDisplayed.length > 1) {
-                        modified = letterDisplayed.substring(letterDisplayed.indexOf(">")+1, letterDisplayed.indexOf(">")+2)
-                       
-                        //console.log("modified: "+ modified)
-                    }
-                    else{
-                        modified = letterDisplayed
-                    } */
+                    // console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
+                    // console.log("shape name: " + shape_name)
 
                     //checks if the submitted answer is identical to the answer and displays correct or incorrect
                     if (shape_name === answerName) {
@@ -186,37 +136,36 @@
 
                 }, false)
 
-                console.log("173 am i outside")
+                //console.log("173 am i outside")
             
-                setTimeout(
-                    function(){
-                        window.location.reload()
-                    }
-                , 2000)
+                // setTimeout(
+                //     function(){
+                //         window.location.reload()
+                //     }
+                // , 5000)
             }
 
             function reply_click_img(){
-                
-
                 //eventListener must be used to take in input from player
                 document.addEventListener('click', function(e) {
-                
-                    // console.log("Line 128"+document.getElementById(e.target.id).innerHTML) 
-                    // console.log("Line 129"+toDisplayChecker)
-                    // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
                    
                     let testURL = document.getElementById(e.target.id).src //the shape that is submitted by user
-                    // let btnID = e.target.id
-                    // let btnIDActual = "ex" + btnID.substring(2)
-                    console.log(testURL)
+                    let btnID = e.target.id
+                    let btnIDActual = "ex" + btnID.substring(2)
+                    console.log("testURL: "+testURL)
+                    console.log("e.target.id: "+e.target.id)
+                    console.log("btnID: "+btnID)
+                    console.log("btnIDActual: "+btnIDActual)
 
-                    console.log("189")
+                    //console.log("189")
                     if(testURL === answer.link){
                         document.getElementById(e.target.id).style.backgroundColor = 'green'
                         document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(btnIDActual).style.backgroundColor = 'green'
                     } else {
                         document.getElementById(e.target.id).innerHTML = 'incorrect'
                         document.getElementById(e.target.id).style.backgroundColor = "red"
+                        document.getElementById(btnIDActual).style.backgroundColor = "red"
                     }
                     //let URLMatchingName;
 
@@ -257,11 +206,11 @@
 
                 console.log("234")
             
-                setTimeout(
-                    function(){
-                        window.location.reload()
-                    }
-                , 900)
+                // setTimeout(
+                //     function(){
+                //         window.location.reload()
+                //     }
+                // , 4000)
 
                 console.log("finished with reply_click_img")
             }
@@ -304,6 +253,9 @@
           </nav>
           <main class="flex">
             <h1 class="header">Shape Test</h1>
+            <p class="top-para">
+                The student will be shown a single letter to memorize in the span of 10 seconds. After the time to memorize is up, students will be quizzed on what letter was shown and will be able to build up their memory skills
+            </p>
             <div class="container bg-info">
                 <div class="d-grid gap-2 place-items-center">
                     <div class="row">
@@ -321,16 +273,6 @@
                     </div>
                     <div class="row">
                         <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            <!-- <div class="cont">
-                                
-                            </div>
-                            <div class="cont">
-                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
-                            </div>
-                            <div class="cont">
-                                
-                            </div> -->
-                            
                             <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
                                 <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
                             </label>

@@ -85,14 +85,16 @@
                 document.getElementById("demo").innerHTML = toDisplay 
                
                 //allows us to display a certain text for n number of seconds
+
                 setTimeout(function(){
                     document.getElementById("demo").innerHTML = ''
-
+               
                     document.getElementById("ex1").innerHTML = option1
                     document.getElementById("ex2").innerHTML = option2
                     document.getElementById("ex3").innerHTML = option3
-                },5000);         
-            }
+                },5000);      
+            }   
+                
             
             //This function allows us to check if the answer submitted by the user is correct or not
             var reply_click = function(){
@@ -135,8 +137,9 @@
                 setTimeout(
                         function(){
                             window.location.reload()
-                    }, 4000)
+                    }, 5000)
                 }
+
 
                 //used to take in info
                 document.getElementById('btn1').onclick = reply_click;
