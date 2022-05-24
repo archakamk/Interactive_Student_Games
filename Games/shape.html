@@ -53,13 +53,15 @@
                 font: bolder;
             }
             .resize {
-                width: 200px;
+                width: auto;
                 height: 200px;
             }
+            .cont {
+                display: inline-block;
+                gap: 20px;
+                margin-bottom: 50px;
+            }
         </style>
-
-
-
 
         <script type="text/javascript">
 
@@ -80,6 +82,8 @@
             var rectangle = {link:'https://o.remove.bg/downloads/daae2d19-1a76-4d47-bfb9-a04f14021e24/Rectangle_example.svg-removebg-preview.png', name: "rectangle"}
             var triangle = {link: 'https://o.remove.bg/downloads/18fdc4a4-f1f6-4210-bebb-9e5c6a5f3e34/06ac9da1a17c6daf308ea6b6bb6568a2-removebg-preview.png', name:"triangle"}
             var square = {link: 'https://o.remove.bg/downloads/21ac7640-b939-4c04-b2dd-cf1171407eba/download-removebg-preview.png', name: "square"}
+
+            var thisContainsAllShapes = [diamond, circle, trapezoid, rectangle, triangle, square]
             
             var allShapes = [
                 [diamond, trapezoid, rectangle],
@@ -112,7 +116,6 @@
             
             //generate function -- allows us to display the question and the multiple choice options
             function generate() {
-                console.log(answerName)
                 document.getElementById("text-before").innerHTML = 'Click on the ' // "\n"answerName
                 document.getElementById("demo").innerHTML = answerName
                
@@ -131,15 +134,17 @@
 
                 //eventListener must be used to take in input from player
                 document.addEventListener('click', function(e) {
+                    console.log("i am inside")
                 
                     // console.log("Line 128"+document.getElementById(e.target.id).innerHTML) 
                     // console.log("Line 129"+toDisplayChecker)
                     // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
                    
-                    let shape_name = document.getElementById(e.target.id).innerHTML //the letter that is submitted by user
-                    console.log(shape_name)
-                    let modified = shape_name.substring(shape_name.indexOf("id=")+4, shape_name.indexOf(" s")-1)
-                    console.log(modified)
+                    let shape_name = document.getElementById(e.target.id).id //the shape that is submitted by user
+                    console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
+                    console.log("shape name: " + shape_name)
+                    // let modified = shape_name.substring(shape_name.indexOf("id=")+4, shape_name.indexOf(" s")-1)
+                    // console.log("modified" + modified)
                     // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
                     // console.log("This is substring(13): " + letterDisplayed.substring(13))
                     // console.log("Until second tag(14): " + letterDisplayed.substring(14))
@@ -155,23 +160,93 @@
                     } */
 
                     //checks if the submitted answer is identical to the answer and displays correct or incorrect
-                    if (modified === answerName) {
+                    if (shape_name === answerName) {
+                        console.log("its correct u mf")
                         document.getElementById(e.target.id).innerHTML = 'correct'
                         document.getElementById(e.target.id).style.backgroundColor = "green"
+                        document.getElementById(e.target.id).style.color = "green"
                     } else { 
                         document.getElementById(e.target.id).innerHTML = 'incorrect'
                         document.getElementById(e.target.id).style.backgroundColor = "red"
                     }
 
                 }, false)
+
+                console.log("173 am i outside")
             
                 setTimeout(
                     function(){
                         window.location.reload()
                     }
                 , 4000)
+            }
 
-                return 
+            function reply_click_img(){
+                
+
+                //eventListener must be used to take in input from player
+                document.addEventListener('click', function(e) {
+                
+                    // console.log("Line 128"+document.getElementById(e.target.id).innerHTML) 
+                    // console.log("Line 129"+toDisplayChecker)
+                    // console.log(document.getElementById(e.target.id).innerHTML == toDisplayChecker)
+                   
+                    let testURL = document.getElementById(e.target.id).src //the shape that is submitted by user
+                    console.log(testURL)
+
+                    console.log("189")
+                    if(testURL === answer.link){
+                        document.getElementById(e.target.id).style.backgroundColor = 'green'
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                    } else {
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    }
+                    //let URLMatchingName;
+
+                    // for (let x = 0; x < 6; x++) {
+                    //     if(testURL === thisContainsAllShapes[x].link) {
+                    //         URLMatchingName = thisContainsAllShapes[x].name
+                    //     }
+                    // }
+
+
+                    // let modified = shape_name.substring(testURL.indexOf("id=")+4, testURL.indexOf(" s")-1)
+                    // console.log(modified)
+                    // console.log("This is assigned to modified: "+letterDisplayed.substring(13,14))
+                    // console.log("This is substring(13): " + letterDisplayed.substring(13))
+                    // console.log("Until second tag(14): " + letterDisplayed.substring(14))
+
+                    //checks to see if the actual answer contains extra unecessary characters & modifies the string
+                    /* if(letterDisplayed.length > 1) {
+                        modified = letterDisplayed.substring(letterDisplayed.indexOf(">")+1, letterDisplayed.indexOf(">")+2)
+                       
+                        //console.log("modified: "+ modified)
+                    }
+                    else{
+                        modified = letterDisplayed
+                    } */
+
+                    //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                    /* if (URLMatchingName=answerName) {
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(e.target.id).style.backgroundColor = "green"
+                    } else { 
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    } */
+
+                    console.log("231")
+                }, false)
+
+                console.log("234")
+            
+                setTimeout(
+                    function(){
+                        window.location.reload()
+                    }
+                , 4000)
+                console.log("finished with reply_click_img")
             }
 
             document.getElementById('btn1').onclick = reply_click;
@@ -229,15 +304,27 @@
                     </div>
                     <div class="row">
                         <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
-<img class="resize" id="ex1"></img>
-                            </label>
-                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
-<img class="resize" id="ex2"></img>
-                            </label>
-                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
-<img class="resize" id="ex3"></img>
-                            </label>
+                            <div class="cont">
+                                <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
+                            </div>
+                            <div class="cont">
+                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                            </div>
+                            <div class="cont">
+                                <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
+                            </div>
+                            
+                            
+                            
+                            <!-- <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
+                                
+                            </label> -->
+                            <!-- <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
+                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                            </label> -->
+                            
+                            <!-- <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
+                            </label> -->
                           </div>
                     </div> 
                 </div>
