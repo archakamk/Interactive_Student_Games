@@ -46,7 +46,7 @@
           .info {
               margin-top: 10px;
               text-align: center;
-              font-size: 40pt;
+              font-size: 20pt;
           }
           .txt-before-deco {
               text-align: center;
@@ -92,6 +92,151 @@
               </div>
             </div>
           </nav>
-        <h1>Hello</h1>
+        
+          <main class="flex">
+            <h1 class="header">Dollar Up</h1>
+            <p class="top-para">
+              The player will be given a money-related scenario and will be asked how much they should pay (i.e. "I want to buy a pack of Cheetos that costs $4.52").
+              They will then be given three choices; if they select the correct option, their score will increase. This continues until they want to quit.
+            </p>
+            <div class="container bg-info">
+                <div class="d-grid gap-2 place-items-center">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="info" id="demo"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-vertical mx-auto" role="group" aria-label="Basic radio toggle button group" id="tester">
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">  
+                              <h4 id="ex1"></h4>
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click(this.id)">
+                              <h4 id="ex2"></h4>
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click(this.id)">
+                              <h4 id="ex3"></h4>
+                            </label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+              document.getElementById("tester").style.display = "none"
+              //both numbers to be displayed
+              var problem = (Math.random()*10).toFixed(2)
+
+              var correctAnswer = Math.ceil(problem)
+              if (problem - Math.floor(problem) ==0){
+                problem = Math.random()*10
+                problem.toFixed(2)
+                correctAnswer = Math.ceil(problem)
+              }
+              var wrong1 = Math.ceil(Math.random()*10)
+              while (wrong1==correctAnswer){
+                wrong1 = Math.ceil(Math.random()*10)
+              }
+              var wrong2 = Math.ceil(Math.random()*10)
+              while(wrong2==wrong1 || wrong2 == correctAnswer) {
+                wrong2 = Math.ceil(Math.random()*10)
+              }
+
+              
+              function generate(){
+                //Check if the operation is subtraction and if the first number is less than the second
+                document.getElementById("demo").innerHTML = "How much should you pay if an item costs: \n" + "$" + problem + "?"
+    
+                document.getElementById("tester").style.display = "block";
+               
+                var choices = [correctAnswer, wrong1, wrong2]
+                var choice_1 = Math.floor(Math.random()*3)
+                var choice_2 = Math.floor(Math.random()*3)
+                while (choice_2==choice_1){
+                   choice_2 = Math.floor(Math.random()*3)
+                }
+                var choice_3 = Math.floor(Math.random()*3)
+                while (choice_3 == choice_1 || choice_3 == choice_2){
+                   choice_3 = Math.floor(Math.random()*3)
+                }
+                document.getElementById("ex1").innerHTML = "$" + choices[choice_1]
+                document.getElementById("ex2").innerHTML = "$" + choices[choice_2]
+                document.getElementById("ex3").innerHTML = "$" + choices[choice_3]
+                
+              }
+    
+              function reply_click(){
+                document.addEventListener('click', function(e) {
+                        // let btnID = e.target.id
+                        // console.log("temp "+btnID)
+                      
+
+                        // if(btnID.indexOf("btn")!=-1){
+                        //   console.log("here 180")
+                        //   btnID = "btn" + btnID.substring(1)
+                        // }
+                        
+                        // else {
+                        //   console.log("here 185")
+                        //   btnID =  "btn" + btnID.substring(btnID.indexOf("btntn")+6)
+                        // }
+                        // console.log(btnID)
+                        // else{
+                        //   btnID = "btn" + 
+                        // }
+                    
+                        // console.log("i am inside")
+                        let answer1 = document.getElementById(e.target.id).innerHTML
+                        console.log("submitted: " + answer1)
+                        
+                        //console.log(numberSubmitted)
+                        //let buttonID 
+                        if (answer1.length <= 3){
+                          answer1 = answer1.substring(answer1.indexOf("$")+1)
+                        }
+                        else if(answer1.length > 2){
+                          answer1 = answer1.substring(answer1.indexOf("$")+2,answer1.indexOf("</")-1)
+                        }
+                        else if (answer1.length>1){
+                          answer1 = answer1.substring(answer1.indexOf("$")+2,answer1.indexOf("</")-1)
+                        }
+                       
+                        console.log("subMod: " + answer1)
+                        
+                        
+                        // console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
+                        // console.log("shape name: " + shape_name)
+                        //console.log(buttonID)
+    
+                        //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                        /* e.target.id = btnID */
+                        if (answer1 === "" + correctAnswer) {
+                            document.getElementById(e.target.id).innerHTML = 'correct'
+                            document.getElementById(e.target.id).style.backgroundColor = "green"
+                           
+                        } else { 
+                            document.getElementById(e.target.id).innerHTML = 'incorrect'
+                            document.getElementById(e.target.id).style.backgroundColor = "red"
+                        }
+
+                    }, false)
+    
+                    //console.log("173 am i outside")
+                
+                    setTimeout(
+                        function(){
+                            window.location.reload()
+                        }
+                    , 2000)
+                }
+    
+    
+            </script>
+        </main>
     </body>
 </html>

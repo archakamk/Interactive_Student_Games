@@ -3,6 +3,53 @@
     <head>
         <title>Rapid Math</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/lux/bootstrap.min.css" integrity="sha512-v51SrQ+z+dLohC1d0HyJA0nSM6XIyLoQl3IxRtM28vlbOPBRMSD3MlyUMNkLyBPlVGxt+9V+ChVG2c8LQsiu3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+          .container {
+                background-color:rgb(102, 204, 255);
+                min-height: 100%;
+                height: 100%;
+                align-items: center;
+                margin-top: 50px;
+                border-radius: 0.5em;
+            }
+            .main.flex {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5em;
+            }
+            .header{
+               margin-top: 25px; 
+               text-align: center; 
+               font:bolder;
+            }
+            .btn {
+                color: black;
+                background-color: bisque;
+                margin-top: 5px;
+                border-radius: 1em;
+                font-size: x-large;
+            }
+
+            .items {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .top-para {
+                margin-top: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+                font-size: larger;
+                text-align: center;
+                color:black;
+            }
+            .info {
+                margin-top: 10px;
+                text-align: center;
+                font-size: 40pt;
+            }
+        </style>
+        
     </head>
 
     <body>
@@ -29,6 +76,141 @@
               </div>
             </div>
           </nav>
-        <h1>Hello</h1>
+          
+          <main class="flex">
+            <h1 class="header">Rapid Math</h1>
+            <p class="top-para">
+              The student will be given a set of basic addition or subtraction problem in a rapid-fire sequence in order to improve their speed calculation skills and their familiarity with numbers. 
+            </p>
+            <div class="container bg-info">
+                <div class="d-grid gap-2 place-items-center">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="info" id="demo"></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-vertical mx-auto" role="group" aria-label="Basic radio toggle button group" id="tester">
+                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click(this.id)">  
+<h4 id="ex1"></h4>
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click(this.id)">
+<h4 id="ex2"></h4>
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click(this.id)">
+<h4 id="ex3"></h4>
+                            </label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script type="text/javascript">
+          document.getElementById("tester").style.display = "none"
+          //both numbers to be displayed
+          let first = Math.floor(Math.random()*9)+1
+          let second = Math.floor(Math.random()*9)+1
+          //list with possible opperations
+          var operations = ["+","-"]
+          //Random operator
+          let operation = operations[Math.floor(Math.random()*2)]
+          let answer
+          let wrong1
+          let wrong2
+          let tempID
+                   
+          function generate(){
+            //Check if the operation is subtraction and if the first number is less than the second
+            if (operation === "-" && first<second){
+              var temp = first
+              first = second
+              second = temp
+            }
+            //Storing value of answer
+            if (operation === "-"){
+              answer = first-second
+            } 
+            else {
+              answer = first+second
+            }
+            
+            wrong1 = Math.floor(Math.random()*19)
+            while (wrong1==answer) {
+              wrong1 = Math.floor(Math.random()*19)
+            }
+            
+            wrong2 = Math.floor(Math.random()*19)
+            while (wrong2==answer || wrong2==wrong1) {
+              wrong1 = Math.floor(Math.random()*19)
+            }
+            document.getElementById("demo").innerHTML = first + " " + operation + " " + second
+
+            document.getElementById("tester").style.display = "block";
+           
+            var choices = [answer, wrong1, wrong2]
+            var choice_1 = Math.floor(Math.random()*3)
+            var choice_2 = Math.floor(Math.random()*3)
+            while (choice_2==choice_1){
+               choice_2 = Math.floor(Math.random()*3)
+            }
+            var choice_3 = Math.floor(Math.random()*3)
+            while (choice_3 == choice_1 || choice_3 == choice_2){
+               choice_3 = Math.floor(Math.random()*3)
+            }
+            document.getElementById("ex1").innerHTML = choices[choice_1]
+            document.getElementById("ex2").innerHTML = choices[choice_2]
+            document.getElementById("ex3").innerHTML = choices[choice_3]
+                    
+          }
+
+          function reply_click(){
+            document.addEventListener('click', function(e) {
+                    temp = e.target.id
+                    // if(temp.indexOf("btn")!=-1) {
+                    //   temp
+                    // }
+                    //console.log("temp = "+ temp)
+                    // console.log("i am inside")
+                    let answer1 = document.getElementById(e.target.id).innerHTML
+                    console.log("answer: " + answer1)
+                    
+                    //console.log(numberSubmitted)
+                    //let buttonID 
+                    if (answer1.length>2){
+                      answer1 = answer1.substring(answer1.indexOf(">")+1,answer1.indexOf(">")+2)
+                    }
+                    
+                    // console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
+                    // console.log("shape name: " + shape_name)
+                    //console.log(buttonID)
+
+                    //checks if the submitted answer is identical to the answer and displays correct or incorrect
+                    if (answer1 === ""+answer) {
+                        document.getElementById(e.target.id).innerHTML = 'correct'
+                        document.getElementById(e.target.id).style.backgroundColor = "green"
+                    } else { 
+                        document.getElementById(e.target.id).innerHTML = 'incorrect'
+                        document.getElementById(e.target.id).style.backgroundColor = "red"
+                    }
+
+                }, false)
+
+                //console.log("173 am i outside")
+            
+                setTimeout(
+                    function(){
+                        window.location.reload()
+                    }
+                , 3000)
+            }
+
+
+        </script>
     </body>
 </html>

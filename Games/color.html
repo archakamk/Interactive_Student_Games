@@ -62,6 +62,18 @@
                 gap: 20px;
                 margin-bottom: 50px;
             }
+            .ex1 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
+            .ex2 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
+            .ex3 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
         </style>
 
         <script type="text/javascript">
@@ -72,21 +84,21 @@
             var triangle = {link: 'https://i.imgur.com/V33tp9a.png', name:"triangle"}
             var square = {link: 'https://i.imgur.com/Auhwwq4.png', name: "square"} */
 
-            var black = {link:'https://i.imgur.com/9F05ufH.png', name: "Black"}
-            var blue = {link: 'https://i.imgur.com/xUY8K09.png', name: "Blue"}
+            var black = {link:'https://i.imgur.com/CT9Cmdz.png', name: "Black"}
+            var yellow = {link: 'https://i.imgur.com/AhSR4U7.png', name: "Yellow"}
             var green = {link: 'https://i.imgur.com/50RNszh.png', name: "Green"}
             var orange = {link:'https://i.imgur.com/Gos0FdL.png', name: "Orange"}
             var pink = {link: 'https://i.imgur.com/q14r4cD.png', name:"Pink"}
             var red = {link: 'https://i.imgur.com/khh1via.png', name: "Red"}
 
-            var thisContainsAllColors = [black, blue, green, orange, pink, red]
+            var thisContainsAllColors = [black, yellow, green, orange, pink, red]
             
             var allColors = [
-                [black, blue, green],
-                [blue, green, orange],
+                [black, yellow, green],
+                [yellow, green, orange],
                 [pink, black, green],
                 [red, black, pink],
-                [blue, green, black],
+                [yellow, green, black],
                 [green, orange, pink]
             ]
 
@@ -275,16 +287,20 @@
                     </div>
                     <div class="row">
                         <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
-                                <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
+                            <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
+                            <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                            <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
+                            
+                            <!-- <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
+                                
                             </label>
                             <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
-                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                                
                             </label>
                             
                             <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
-                                <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
-                            </label>
+                                
+                            </label> -->
                           </div>
                     </div> 
                 </div>

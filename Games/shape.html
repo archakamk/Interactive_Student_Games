@@ -61,7 +61,89 @@
                 gap: 20px;
                 margin-bottom: 50px;
             }
+            .ex1 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
+            .ex2 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
+            .ex3 {
+                margin-bottom: 50px;
+                gap: 2em;
+            }
         </style>
+    </head>
+
+    <!--svg tag may be pretty helpful in this program
+          -can create circles and other shapes
+    -->
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="font-size: x-large">Interactive Student Games</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/home.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Nav/about-creators.html">About the Creators</a>
+                  </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <main class="flex">
+            <h1 class="header">Shape Test</h1>
+            <p class="top-para">
+                The student will be shown a single letter to memorize in the span of 10 seconds. After the time to memorize is up, students will be quizzed on what letter was shown and will be able to build up their memory skills
+            </p>
+            <div class="container bg-info">
+                <div class="d-grid gap-2 place-items-center">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="txt-before-deco" id="text-before"></h2>
+                            <br>
+                            <h2 class="txt-before-deco" id="demo"></h2>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
+                            <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
+                            <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
+                            <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
+                            <!-- <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
+                                
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
+                                
+                            </label>
+                            
+                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
+                                
+                            </label> -->
+                          </div>
+                    </div> 
+                </div>
+            </div>
+        </main>
 
         <script type="text/javascript">
             var diamond = {link:'https://i.imgur.com/9EKOmKq.png', name: "diamond"}
@@ -124,15 +206,17 @@
                     // console.log("shape name: " + shape_name)
 
                     //checks if the submitted answer is identical to the answer and displays correct or incorrect
-                    if (shape_name === answerName) {
-                        console.log("its correct u mf")
-                        document.getElementById(e.target.id).innerHTML = 'correct'
-                        document.getElementById(e.target.id).style.backgroundColor = "green"
-                        document.getElementById(e.target.id).style.color = "green"
-                    } else { 
-                        document.getElementById(e.target.id).innerHTML = 'incorrect'
-                        document.getElementById(e.target.id).style.backgroundColor = "red"
-                    }
+
+                    setTimeout( function(){
+                        if (shape_name === answerName) {
+                            document.getElementById(e.target.id).innerHTML = 'correct'
+                            document.getElementById(e.target.id).style.backgroundColor = "green"
+                            document.getElementById(e.target.id).style.color = "green"
+                        } else { 
+                            document.getElementById(e.target.id).innerHTML = 'incorrect'
+                            document.getElementById(e.target.id).style.backgroundColor = "red"
+                        }
+                    },2000)
 
                 }, false)
 
@@ -221,73 +305,6 @@
                 
 
         </script>
-    </head>
-
-    <!--svg tag may be pretty helpful in this program
-          -can create circles and other shapes
-    -->
-
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" style="font-size: x-large">Interactive Student Games</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          
-              <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="/Nav/home.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/Nav/about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/Nav/about-creators.html">About the Creators</a>
-                  </li>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <main class="flex">
-            <h1 class="header">Shape Test</h1>
-            <p class="top-para">
-                The student will be shown a single letter to memorize in the span of 10 seconds. After the time to memorize is up, students will be quizzed on what letter was shown and will be able to build up their memory skills
-            </p>
-            <div class="container bg-info">
-                <div class="d-grid gap-2 place-items-center">
-                    <div class="row">
-                        <div class="col mx-auto">
-                            <button class="btn btn-outline-primary" onclick="generate()">Generate Problem</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="txt-before-deco" id="text-before"></h2>
-                            <br>
-                            <h2 class="txt-before-deco" id="demo"></h2>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
-                                <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
-                            </label>
-                            <label class="btn btn-outline-primary" for="btnradio2" id="btn2" onclick="reply_click()">
-                                <img class="resize" id="ex2"  onclick="reply_click_img()"></img>
-                            </label>
-                            
-                            <label class="btn btn-outline-primary" for="btnradio3" id="btn3" onclick="reply_click()">
-                                <img class="resize" id="ex3"  onclick="reply_click_img()"></img>
-                            </label>
-                          </div>
-                    </div> 
-                </div>
-            </div>
-        </main>
     </body>
 
 </html>
