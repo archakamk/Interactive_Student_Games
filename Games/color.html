@@ -118,10 +118,13 @@
                
                 document.getElementById("ex1").src = option1.link
                 document.getElementById("ex1").id = option1.name
+                document.getElementById("btn1").id = option1.name
                 document.getElementById("ex2").src = option2.link
                 document.getElementById("ex2").id = option2.name
+                document.getElementById("btn2").id = option2.name
                 document.getElementById("ex3").src = option3.link 
-                document.getElementById("ex3").id = option3.name                   
+                document.getElementById("ex3").id = option3.name      
+                document.getElementById("btn3").id = option3.name             
             }
             
             //This function allows us to check if the answer submitted by the user is correct or not
@@ -152,11 +155,11 @@
 
                 //console.log("173 am i outside")
             
-                setTimeout(
+                /* setTimeout(
                     function(){
                         window.location.reload()
                     }
-                , 3000)
+                , 3000) */
             }
 
             /* function reply_click_img(){
@@ -228,10 +231,6 @@
 
                 /*console.log("finished with reply_click_img")
             } */
-
-            document.getElementById('btn1').onclick = reply_click;
-            document.getElementById('btn2').onclick = reply_click;
-            document.getElementById('btn3').onclick = reply_click;
                 
 
         </script>
