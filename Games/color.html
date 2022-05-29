@@ -141,8 +141,8 @@
                     if (shape_name === answerName) {
                         console.log("its correct u mf")
                         document.getElementById(e.target.id).innerHTML = 'correct'
+                        console.log(e.target.id)
                         document.getElementById(e.target.id).style.backgroundColor = "green"
-                        document.getElementById(e.target.id).style.color = "green"
                     } else { 
                         document.getElementById(e.target.id).innerHTML = 'incorrect'
                         document.getElementById(e.target.id).style.backgroundColor = "red"
