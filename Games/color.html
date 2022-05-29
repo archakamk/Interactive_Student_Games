@@ -172,10 +172,12 @@
 
                     //console.log("189")
                     if(testURL === answer.link){
+                        document.getElementById(btnID).style.backgroundColor = 'green'
                         document.getElementById(e.target.id).style.backgroundColor = 'green'
                         document.getElementById(e.target.id).innerHTML = 'correct'
                         document.getElementById(btnIDActual).style.backgroundColor = 'green'
                     } else {
+                        document.getElementById(btnID).style.backgroundColor = 'red'
                         document.getElementById(e.target.id).innerHTML = 'incorrect'
                         document.getElementById(e.target.id).style.backgroundColor = "red"
                         document.getElementById(btnIDActual).style.backgroundColor = "red"
@@ -287,10 +289,6 @@
                     </div>
                     <div class="row">
                         <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
-                            
-                            
-                            
-                            
                             <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
                                 <img class="resize" id="ex1"  onclick="reply_click_img()"></img>
                             </label>
