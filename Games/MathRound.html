@@ -164,9 +164,9 @@
                 while (choice_3 == choice_1 || choice_3 == choice_2){
                    choice_3 = Math.floor(Math.random()*3)
                 }
-                document.getElementById("ex1").innerHTML = "$" + choices[choice_1]
-                document.getElementById("ex2").innerHTML = "$" + choices[choice_2]
-                document.getElementById("ex3").innerHTML = "$" + choices[choice_3]
+                document.getElementById("btn1").innerHTML = "$" + choices[choice_1]
+                document.getElementById("btn2").innerHTML = "$" + choices[choice_2]
+                document.getElementById("btn3").innerHTML = "$" + choices[choice_3]
                 
               }
     
@@ -208,7 +208,6 @@
                        
                         console.log("subMod: " + answer1)
                         
-                        
                         // console.log("printint inner html on document.getElementById: " + document.getElementById(e.target.id).innerHTML)
                         // console.log("shape name: " + shape_name)
                         //console.log(buttonID)
@@ -217,8 +216,7 @@
                         /* e.target.id = btnID */
                         if (answer1 === "" + correctAnswer) {
                             document.getElementById(e.target.id).innerHTML = 'correct'
-                            document.getElementById(e.target.id).style.backgroundColor = "green"
-                           
+                            document.getElementById(e.target.id).style.backgroundColor = "green"  
                         } else { 
                             document.getElementById(e.target.id).innerHTML = 'incorrect'
                             document.getElementById(e.target.id).style.backgroundColor = "red"
