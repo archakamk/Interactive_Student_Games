@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group">
+                        <div class="btn-group-horizontal mx-auto" role="group" aria-label="Basic radio toggle button group" id="tester">
                             <label class="btn btn-outline-primary" for="btnradio1" id="btn1" onclick="reply_click()">  
                                 <img class="resize" id="ex1"></img>
                             </label>
@@ -178,6 +178,7 @@
             
             //generate function -- allows us to display the question and the multiple choice options
             function generate() {
+                document.getElementById("tester").style.display = "block";
                 document.getElementById("text-before").innerHTML = 'Click on the '
                 document.getElementById("demo").innerHTML = answerName
                
