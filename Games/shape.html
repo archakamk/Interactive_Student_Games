@@ -206,7 +206,6 @@
 
                     //checks if the submitted answer is identical to the answer and displays correct or incorrect
 
-                    setTimeout( function(){
                         if (shape_name === answerName) {
                             document.getElementById(e.target.id).innerHTML = 'correct'
                             document.getElementById(e.target.id).style.backgroundColor = "green"
@@ -215,7 +214,7 @@
                             document.getElementById(e.target.id).innerHTML = 'incorrect'
                             document.getElementById(e.target.id).style.backgroundColor = "red"
                         }
-                    },2000)
+
 
                 }, false)
 
@@ -225,7 +224,7 @@
                     function(){
                         window.location.reload()
                     }
-                , 5000)
+                , 3000)
             }
 
             //function reply_click_img(){
