@@ -12,70 +12,102 @@
 
       <style>
         .memory-container {
-          margin-left: 50px;
-          margin-top: 50px;
+          /* margin-left: 50px;
+          margin-top: 50px; */
           height: 200px;
           width: 400px;
           border-radius: 1em;
           background:rgb(237, 3, 237);
           text-align:center;
-          vertical-align: auto;
-          align-items: center;
+          /* vertical-align: auto; */
+          /* align-items: center; */
           font-size: x-large;
-          display:inline-block;
+
+          margin: 50px;
+
+          /* display:inline-block; */
         }
         .shape-container{
           background: rgb(106, 203, 235);
-          margin-top: 50px;
+          /* margin-top: 50px; */
           height: 200px;
+
+          margin: 50px;
           width: 400px;
           text-align: center;
           font-size: x-large;
-          display: inline-block;
+          /* display: inline-block; */
           border-radius: 1em;
-          margin-left: 75px;
+          /* margin-left: 75px; */
         }
         .color-container {
           background: rgb(88, 247, 170);
-          margin-top: 50px;
+          /* margin-top: 50px; */
           height: 200px;
           width: 400px;
           border-radius: 1em;
           text-align: center;
           font-size: x-large;
-          display: inline-block;
-          margin-left: 75px;
-          align-items: center;
-          vertical-align: auto;
+
+          margin: 50px;
+          /* display: inline-block; */
+          /* margin-left: 75px; */
+          /* align-items: center; */
+          /* vertical-align: auto; */
         }
         .rapid-container {
           background: orange;
-          margin-top: 100px;
+          /* margin-top: 100px; */
           height: 200px;
           width: 400px;
           border-radius: 1em;
           text-align: center;
           font-size: x-large;
-          display: inline-block;
-          margin-left: 350px;
-          align-content: center;
-          vertical-align: auto;
+
+          margin: 50px;
+          /* display: inline-block; */
+          /* margin-left: 300px; */
+          /* align-content: center; */
+          /* vertical-align: auto; */
         }
         .round-container {
           background: #ec7cec;
-          margin-top: 100px;
+          /* margin-top: 100px; */
           height: 200px;
           width: 400px;
           border-radius: 1em;
           text-align: center;
           font-size: x-large;
-          display: inline-block;
-          margin-left: 100px;
+
+          margin: 50px;
+          /* display: inline-block; */
+          /* margin-left: 100px; */
         }
-        .main.flex {
+        .main {
+          margin-top: 50px;
+          gap: 5em;
+        }
+        .sussy-balls {
           display: flex;
           flex-wrap: wrap;
-          gap: 5em;
+          justify-content: space-around;
+
+          margin-top: 50px;
+          margin-bottom: 50px;
+
+          width: 80%;
+          margin: auto;
+        }
+        .doggy-balls {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+
+          margin-top: 50px;
+          margin-bottom: 50px;
+
+          width: 50%;
+          margin: auto;
         }
         .head {
           margin-top: 25px;
@@ -157,12 +189,16 @@
       </nav>
 
       <!-- <hr style="border-width: 2.5px" class="line"/> -->
-      <main class="main">
-        <p class="para"style="font-size:larger; color:black" align="center">Welcome to Interactive Student Games, a website special-ed teachers can use in the classroom to teach their students important life skills in a fun way!</p>
 
+      <p class="para" style="font-size:larger; color:black" align="center">Welcome to Interactive Student Games, a website special-ed teachers can use in the classroom to teach their students important life skills in a fun way!</p>
+
+      <main class="main">
+    
+
+        <div class="sussy-balls">
         <!--Memory-->
         <a href="/Games/memory.html">
-          <div class="shape-container bg-danger">
+          <div class="memory-container bg-danger">
             Memory Test
             <img class="mem-img" src="https://i.imgur.com/S8FktjB.png">
           </div>
@@ -183,7 +219,9 @@
             <img class="color-img" src="https://i.imgur.com/iP0E7Fa.png">
           </div>
         </a>
+      </div>
 
+      <div class="doggy-balls">
         <!--Rapid Math-->
         <a href="/Games/RapidMath.html">
           <div class="rapid-container">
@@ -200,6 +238,9 @@
             <img class="round-img" src="https://i.imgur.com/HR7s8ai.png">
           </div>
         </a>
+      </div>
+
+
       </main>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
