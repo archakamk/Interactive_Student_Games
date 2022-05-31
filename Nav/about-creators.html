@@ -11,24 +11,59 @@
                 gap: 5em;
             }
             .header {
-                text-align: center;
-                font-size: x-large;
-                margin-top: 1em;
+                justify-content: center;
+                display: flex;
+                font-size: xx-large;
+                margin-top: 50px;
             }
             .k-resize {
-                width: 192px;
-                height: 358.4px;
+              padding: 1em;
+                width: auto;
+                height: auto;
+                position: relative;
+                top: -175px;
+            }
+            .s-resize {
+              padding: 1em;
+              width: auto;
+              height: auto;
+              position: relative;
+              top: -200px;
+            }
+            .m-resize {
+              padding: 1em;
+              width: auto;
+              height: auto;
+              transform: translateY(-175px);
+            }
+            .card-b {
+              padding: 1em;
+              margin-top: -150px;
+            }
+            .card-text {
+              transform: translateY(-25px);
             }
             .card {
                 width: 350px;
                 height: auto;
-                display: inline-block;
+                display: flex;
                 margin-top: 50px;
-                margin-left: 50px;
+                margin-left: 90px;
                 border-radius: 1em;
             }
             .row {
-                margin-left: 50px;
+                justify-content: center;
+                /*align-items: center;*/
+                display: flex;
+            }
+            .card-header {
+              color: black;
+            }
+            .card-subtitle {
+              color: black;
+            }
+            .card-title {
+              color: black;
             }
         </style>
     </head>
@@ -61,123 +96,62 @@
                 </div>
                 </div>
             </nav>
-            
 
             <h1 class="header">Meet the Creators</h1>
 
             <div class="row">
                 <div class="column">
                     <div class="card mb-3">
-                        <h3 class="card-header">Card header</h3>
+                        <h3 class="card-header">Kalyan Archakam</h3>
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                          <h5 class="card-title">Co-Creator</h5>
+                          <h6 class="card-subtitle text-muted">Amador Valley High School</h6>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                          <rect width="100%" height="100%" fill="#868e96"></rect>
-                          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                          <img class="k-resize" src="https://i.imgur.com/tUb7Nfd.jpg">
                         </svg>
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="card-b">
+                          <p class="card-text">
+                            I'm Kalyan and am an upcoming junior here at Amador. I like playing and watching basketball, and coding fun projects. 
+                            I started off my programming adventure with Python and was able to make many interactive games using pygame. I've also enjoyed
+                            learning new languages such as Javascript, HTML, and CSS, which helped us produce this website. 
+                          </p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                          2 days ago
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Card title</h4>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
+                        
                       </div>
                 </div>
 
                 <div class="column">
                     <div class="card mb-3">
-                        <h3 class="card-header">Card header</h3>
+                        <h3 class="card-header">Sangeet Barkataki</h3>
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                          <h5 class="card-title">Co-Creator</h5>
+                          <h6 class="card-subtitle text-muted">Amador Valley High School</h6>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                          <rect width="100%" height="100%" fill="#868e96"></rect>
-                          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                          <img class="s-resize" src="https://i.imgur.com/xypoybC.jpg">
                         </svg>
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="card-b">
+                          <p class="card-text">Hey, I'm Sangeet and I'm currently a sophomore at AVHS. I like weightlifting, playing soccer, music production and singing. I started my programming journey when I was 6 with Hour of Code. Since then, I have learned Java, JavaScript, HTML, CSS, and SQL.</p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                          2 days ago
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Card title</h4>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
+
                       </div>
                 </div>
                 
                 <div class="column">
                     <div class="card mb-3">
-                        <h3 class="card-header">Card header</h3>
+                        <h3 class="card-header">Aathma M.</h3>
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                          <h5 class="card-title">Co-Creator </h5>
+                          <h6 class="card-subtitle text-muted">Amador Valley High School</h6>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                          <rect width="100%" height="100%" fill="#868e96"></rect>
-                          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                          <img class="m-resize" src="https://i.imgur.com/gInnnMq.png">
                         </svg>
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                          2 days ago
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Card title</h4>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="card-link">Card link</a>
-                          <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
+                        <div class="card-b">
+                          <p class="card-text">I'm Aathma, a current sophomore at Amador Valley High School in Pleasanton, CA. Amongst other things, I like coding, watching TV, and playing basketball. Although I originally started my coding journey with C++, I've had a fun time coding this project using HTML/CSS/Javscript, and I hope you find it useful.</p>
+                        </div> 
+                      </div>  
                 </div>
             </div>
         </main>
